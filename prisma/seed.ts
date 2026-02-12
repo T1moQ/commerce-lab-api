@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client/extension'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -26,7 +26,7 @@ async function main() {
 			slug: `product-${i + 1}`,
 			description: `Description for product ${i + 1}`,
 			priceValue: 9.99 + i,
-			currency: '',
+			currency: 'USD',
 			rating: (i % 5) + 0.2,
 			reviewCount: 10 + i,
 			categoryId: cat.id,
@@ -45,7 +45,7 @@ async function main() {
 				slug: p.slug,
 				description: p.description,
 				priceValue: p.priceValue,
-				currency: p.currency,
+				currency: 'USD',
 				rating: p.rating,
 				reviewCount: p.reviewCount,
 				categoryId: p.categoryId,

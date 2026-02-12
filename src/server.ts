@@ -2,11 +2,11 @@ import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
 import { ApolloServer } from '@apollo/server'
-import { PrismaClient } from '@prisma/client/extension'
 import { typeDefs } from './graphql/schema'
 import { resolvers } from './graphql/resolvers'
 import type { GraphQLContext } from './graphql/context'
 import { expressMiddleware } from '@as-integrations/express5'
+import { PrismaClient } from '@prisma/client'
 
 async function bootstrap() {
 	const app = express()
