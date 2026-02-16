@@ -64,6 +64,37 @@ export const resolvers = {
 		},
 	},
 
+	Mutation: {
+		createProduct: async (
+			_: any,
+			{
+				input,
+			}: {
+				input: {
+					title: string
+					description: string
+					priceValue: string
+					currency: unknown
+					categoryId: string
+				}
+			},
+			ctx: GraphQLContext,
+		) => {
+			const slug = input.title.toLowerCase().replace(/\s+/g, '-')
+
+			return ctx.prisma.product.create({
+				data: {
+					title: input.title,
+					slug,
+					description: input.description ?? null,
+					priceValue: input.priceValue,
+					currency: input.currency,
+					categoryId: input.categoryId,
+				},
+			})
+		},
+	},
+
 	Product: {
 		price: (p: any) => ({ value: p.priceValue, currency: p.currency }),
 		images: (p: any) => (p.images ?? []).map((i: any) => i.url),

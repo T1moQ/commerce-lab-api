@@ -58,4 +58,16 @@ export const typeDefs = `
 		categorySlug: String
 		search: String
 	}
+
+  input CreateProductInput {
+    title: String!
+    description: String
+    priceValue: Float!
+    currency: Currency!
+    categoryId: String!
+  }
+
+  type Mutation {
+    createProduct(input: CreateProductInput!): Product!
+}
 `
