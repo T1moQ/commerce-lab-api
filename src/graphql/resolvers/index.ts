@@ -50,7 +50,7 @@ export const resolvers = {
 			const [items, total] = await Promise.all([
 				ctx.prisma.product.findMany({
 					where,
-					orderBy: { createdAt: 'desc' },
+					orderBy: { createdAt: 'asc' },
 					include: { images: true, category: true },
 					skip: filter?.offset,
 					take: filter?.limit,
