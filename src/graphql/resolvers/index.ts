@@ -25,7 +25,14 @@ export const resolvers = {
 
 		products: async (
 			_: unknown,
-			args: { filter?: { categorySlug?: string; search?: string } },
+			args: {
+				filter?: {
+					categorySlug?: string
+					search?: string
+					limit?: number
+					offset?: number
+				}
+			},
 			ctx: GraphQLContext,
 		) => {
 			const { filter } = args
@@ -45,6 +52,8 @@ export const resolvers = {
 					where,
 					orderBy: { createdAt: 'desc' },
 					include: { images: true, category: true },
+					skip: filter?.offset,
+					take: filter?.limit,
 				}),
 				ctx.prisma.product.count({ where }),
 			])

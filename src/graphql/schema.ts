@@ -57,6 +57,8 @@ export const typeDefs = `
 	input ProductFilterInput {
 		categorySlug: String
 		search: String
+    limit: Int
+    offset: Int
 	}
 
   input CreateProductInput {
