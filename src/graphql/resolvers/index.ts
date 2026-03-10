@@ -82,9 +82,6 @@ export const resolvers = {
 				input: {
 					title: string
 					description: string
-					priceValue: string
-					currency: unknown
-					categoryId: string
 				}
 			},
 			ctx: GraphQLContext,
@@ -96,9 +93,6 @@ export const resolvers = {
 					title: input.title,
 					slug,
 					description: input.description ?? null,
-					priceValue: input.priceValue,
-					currency: input.currency,
-					categoryId: input.categoryId,
 				},
 			})
 		},
