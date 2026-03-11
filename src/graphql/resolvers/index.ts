@@ -51,7 +51,6 @@ export const resolvers = {
 				ctx.prisma.product.findMany({
 					where,
 					orderBy: { createdAt: 'asc' },
-					include: { images: true, category: true },
 					skip: filter?.offset,
 					take: filter?.limit,
 				}),
@@ -68,7 +67,6 @@ export const resolvers = {
 		) => {
 			return ctx.prisma.product.findUnique({
 				where: { slug: args.slug },
-				include: { images: true, category: true },
 			})
 		},
 	},

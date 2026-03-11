@@ -30,10 +30,8 @@ export const typeDefs = `
 		slug: String!
 		description: String
 		price: Price!
-		images: [String!]!
-		rating: Float
-		reviewCount: Int
-		category: Category!
+		images: [String!]
+		category: Category
 		createdAt: DateTime!
 	}
 
