@@ -86,7 +86,11 @@ export const resolvers = {
 			},
 			ctx: GraphQLContext,
 		) => {
-			const slug = input.title.toLowerCase().replace(/\s+/g, '-')
+			const slug = input.title
+				.toLowerCase()
+				.trim()
+				.replace(/[^\w\s-]/g, '')
+				.replace(/\s+/g, '-')
 
 			return ctx.prisma.product.create({
 				data: {
