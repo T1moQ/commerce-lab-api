@@ -98,6 +98,12 @@ export const resolvers = {
 				},
 			})
 		},
+
+		deleteProduct: async (_: any, args: any, ctx: GraphQLContext) => {
+			return ctx.prisma.product.delete({
+				where: { id: args.id },
+			})
+		},
 	},
 
 	Product: {

@@ -67,5 +67,6 @@ export const typeDefs = `
 
   type Mutation {
     createProduct(input: CreateProductInput!): Product!
-}
+    deleteProduct(id: String!): Product!
+  }
 `
