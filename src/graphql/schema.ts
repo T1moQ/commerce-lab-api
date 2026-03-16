@@ -65,8 +65,15 @@ export const typeDefs = `
     slug: String!
   }
 
+  input UpdateProductInput {
+    title: String!
+    desc: String
+    slug: String
+  }
+
   type Mutation {
     createProduct(input: CreateProductInput!): Product!
     deleteProduct(id: String!): Product!
+    updateProduct(id: String!, input: UpdateProductInput!): Product!
   }
 `
