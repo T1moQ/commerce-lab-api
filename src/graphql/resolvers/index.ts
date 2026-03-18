@@ -107,14 +107,17 @@ export const resolvers = {
 
 		updateProduct: async (
 			_: any,
-			{ id, input }: { id: string; input: { title: string; desc: string } },
+			{
+				id,
+				input,
+			}: { id: string; input: { title: string; description: string } },
 			ctx: GraphQLContext,
 		) => {
 			return ctx.prisma.product.update({
 				where: { id },
 				data: {
 					title: input.title,
-					desc: input.desc,
+					description: input.description,
 				},
 			})
 		},

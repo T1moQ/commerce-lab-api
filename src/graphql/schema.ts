@@ -67,7 +67,7 @@ export const typeDefs = `
 
   input UpdateProductInput {
     title: String!
-    desc: String
+    description: String
     slug: String
   }
 
